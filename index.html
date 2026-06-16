@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Livraria Conceito - Home</title>
+  <!-- Bulma CSS Framework -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
+  <!-- Google Fonts: Inter & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero is-relative custom-hero">
+    <!-- Hero Header (Navbar) -->
+    <div class="hero-head">
+      <nav class="navbar is-transparent" role="navigation" aria-label="main navigation" id="main-navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item logo-text" href="#">
+              LOGO
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+
+          <div id="navbarMenu" class="navbar-menu">
+            <div class="navbar-end">
+              <a class="navbar-item custom-nav-item is-active" href="#">Home</a>
+              <a class="navbar-item custom-nav-item" href="#">Catálogo</a>
+              <a class="navbar-item custom-nav-item" href="#">
+                Compras
+                <span class="tag is-rounded is-danger cart-badge ml-2" id="cart-badge" style="display: none;">0</span>
+              </a>
+              <a class="navbar-item custom-nav-item" href="#">Configurações</a>
+              <a class="navbar-item theme-toggle" id="theme-toggle-btn" aria-label="Alternar tema">
+                <i class="fa-regular fa-moon toggle-icon"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Hero Body (Empty for aesthetic spacing) -->
+    <div class="hero-body is-flex is-align-items-flex-end pb-0">
+      <div class="container is-relative">
+        <!-- Inside space if needed, keeping layout empty for styling window background -->
+      </div>
+    </div>
+
+    <!-- Floating Cards Section (Overlapping the Hero boundary) -->
+    <div class="hero-foot">
+      <div class="container px-4">
+        <div class="columns is-mobile is-multiline glass-pills-container">
+          <div class="column is-6-mobile is-3-tablet">
+            <a href="#" class="glass-pill-card">
+              <div class="pill-icon">
+                <i class="fa-solid fa-percent"></i>
+              </div>
+              <div class="pill-text">
+                <span class="pill-title">Ofertas e Cupons</span>
+              </div>
+            </a>
+          </div>
+          <div class="column is-6-mobile is-3-tablet">
+            <a href="#" class="glass-pill-card">
+              <div class="pill-icon">
+                <i class="fa-solid fa-trophy"></i>
+              </div>
+              <div class="pill-text">
+                <span class="pill-title">Melhores do Ano</span>
+              </div>
+            </a>
+          </div>
+          <div class="column is-6-mobile is-3-tablet">
+            <a href="#" class="glass-pill-card">
+              <div class="pill-icon">
+                <i class="fa-solid fa-newspaper"></i>
+              </div>
+              <div class="pill-text">
+                <span class="pill-title">Confira as Novidades</span>
+              </div>
+            </a>
+          </div>
+          <div class="column is-6-mobile is-3-tablet">
+            <a href="#" class="glass-pill-card">
+              <div class="pill-icon">
+                <i class="fa-solid fa-crown"></i>
+              </div>
+              <div class="pill-text">
+                <span class="pill-title">Assine Já</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Area -->
+  <main class="main-content py-6">
+    <div class="container px-4">
+      
+      <!-- Section 1: Melhores Escolhas -->
+      <section class="book-section py-5">
+        <h2 class="title is-4 font-serif section-title">Melhores escolhas de livros para você</h2>
+        <div class="columns is-multiline is-mobile book-grid">
+          <!-- Book 1 -->
+          <div class="column is-6-mobile is-3-tablet is-one-fifth-desktop">
+            <div class="book-card card" data-id="book-1" data-title="Crime e Castigo" data-author="Fiódor Dostoiévski" data-price="R$ 62,00" data-desc="Uma das obras mais célebres da literatura mundial. Narra a história de Raskólnikov, um jovem estudante que comete um assassinato em São Petersburgo e lida com as consequências psicológicas e morais do seu ato." data-bg="linear-gradient(135deg, #1f2937, #111827)">
+              <div class="card-image">
+                <figure class="image is-2by3 book-cover-container">
+                  <img src="assets/crime_e_castigo.jpg" alt="Crime e Castigo" class="book-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="book-cover-placeholder font-serif" style="background: linear-gradient(135deg, #a83232, #611515); color: #fff;">
+                    <div class="placeholder-border">
+                      <span class="placeholder-title">Crime e Castigo</span>
+                      <span class="placeholder-author">Fiódor Dostoiévski</span>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+              <div class="card-content-custom pt-3 px-1 pb-1">
+                <h3 class="book-title font-serif">Crime e Castigo</h3>
+                <div class="is-flex is-justify-content-space-between is-align-items-center mt-2">
+                  <p class="book-price">R$ 62,00</p>
+                  <div class="quantity-selector">
+                    <button class="button quantity-btn minus-btn" aria-label="Remover do carrinho" disabled>
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+                    <span class="quantity-value">0</span>
+                    <button class="button quantity-btn plus-btn" aria-label="Adicionar ao carrinho">
+                      <i class="fa-solid fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Book 2 -->
+          <div class="column is-6-mobile is-3-tablet is-one-fifth-desktop">
+            <div class="book-card card" data-id="book-2" data-title="A Revolução dos Bichos" data-author="George Orwell" data-price="R$ 54,00" data-desc="Uma sátira clássica sobre a ditadura e o totalitarismo, onde os animais de uma fazenda se rebelam contra seus donos humanos apenas para cair sob o controle autoritário dos porcos." data-bg="linear-gradient(135deg, #2b6cb0, #1a365d)">
+              <div class="card-image">
+                <figure class="image is-2by3 book-cover-container">
+                  <img src="assets/revolucao_bichos.jpg" alt="A Revolução dos Bichos" class="book-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="book-cover-placeholder font-serif" style="background: linear-gradient(135deg, #2c5282, #1a365d); color: #fff;">
+                    <div class="placeholder-border">
+                      <span class="placeholder-title">A Revolução dos Bichos</span>
+                      <span class="placeholder-author">George Orwell</span>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+              <div class="card-content-custom pt-3 px-1 pb-1">
+                <h3 class="book-title font-serif">A Revolução dos Bichos</h3>
+                <div class="is-flex is-justify-content-space-between is-align-items-center mt-2">
+                  <p class="book-price">R$ 54,00</p>
+                  <div class="quantity-selector">
+                    <button class="button quantity-btn minus-btn" aria-label="Remover do carrinho" disabled>
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+                    <span class="quantity-value">0</span>
+                    <button class="button quantity-btn plus-btn" aria-label="Adicionar ao carrinho">
+                      <i class="fa-solid fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Book 3 -->
+          <div class="column is-6-mobile is-3-tablet is-one-fifth-desktop">
+            <div class="book-card card" data-id="book-3" data-title="Água Viva" data-author="Clarice Lispector" data-price="R$ 40,00" data-desc="Um fluxo de consciência poético e profundo. Clarice Lispector explora o ato da criação, o tempo, e a essência do ser em uma prosa poética singular." data-bg="linear-gradient(135deg, #319795, #234e52)">
+              <div class="card-image">
+                <figure class="image is-2by3 book-cover-container">
+                  <img src="assets/agua_viva.jpg" alt="Água Viva" class="book-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="book-cover-placeholder font-serif" style="background: linear-gradient(135deg, #319795, #234e52); color: #fff;">
+                    <div class="placeholder-border">
+                      <span class="placeholder-title">Água Viva</span>
+                      <span class="placeholder-author">Clarice Lispector</span>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+              <div class="card-content-custom pt-3 px-1 pb-1">
+                <h3 class="book-title font-serif">Água Viva</h3>
+                <div class="is-flex is-justify-content-space-between is-align-items-center mt-2">
+                  <p class="book-price">R$ 40,00</p>
+                  <div class="quantity-selector">
+                    <button class="button quantity-btn minus-btn" aria-label="Remover do carrinho" disabled>
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+                    <span class="quantity-value">0</span>
+                    <button class="button quantity-btn plus-btn" aria-label="Adicionar ao carrinho">
+                      <i class="fa-solid fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Book 4 -->
+          <div class="column is-6-mobile is-3-tablet is-one-fifth-desktop">
+            <div class="book-card card" data-id="book-4" data-title="A Hora da Estrela" data-author="Clarice Lispector" data-price="R$ 37,00" data-desc="A história comovente de Macabéa, uma datilógrafa alagoana órfã e solitária no Rio de Janeiro, contada pelo narrador fictício Rodrigo S.M." data-bg="linear-gradient(135deg, #dd6b20, #7b341e)">
+              <div class="card-image">
+                <figure class="image is-2by3 book-cover-container">
+                  <img src="assets/hora_estrela.jpg" alt="A Hora da Estrela" class="book-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="book-cover-placeholder font-serif" style="background: linear-gradient(135deg, #dd6b20, #7b341e); color: #fff;">
+                    <div class="placeholder-border">
+                      <span class="placeholder-title">A Hora da Estrela</span>
+                      <span class="placeholder-author">Clarice Lispector</span>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+              <div class="card-content-custom pt-3 px-1 pb-1">
+                <h3 class="book-title font-serif">A Hora da Estrela</h3>
+                <div class="is-flex is-justify-content-space-between is-align-items-center mt-2">
+                  <p class="book-price">R$ 37,00</p>
+                  <div class="quantity-selector">
+                    <button class="button quantity-btn minus-btn" aria-label="Remover do carrinho" disabled>
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+                    <span class="quantity-value">0</span>
+                    <button class="button quantity-btn plus-btn" aria-label="Adicionar ao carrinho">
+                      <i class="fa-solid fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Book 5 -->
+          <div class="column is-6-mobile is-3-tablet is-one-fifth-desktop">
+            <div class="book-card card" data-id="book-5" data-title="Livro do Desassossego" data-author="Fernando Pessoa" data-price="R$ 49,00" data-desc="A obra-prima em prosa de Fernando Pessoa, assinada por seu semi-heterônimo Bernardo Soares. Uma coleção de fragmentos, diários e meditações existenciais." data-bg="linear-gradient(135deg, #4a5568, #2d3748)">
+              <div class="card-image">
+                <figure class="image is-2by3 book-cover-container">
+                  <img src="assets/livro_desassossego.jpg" alt="Livro do Desassossego" class="book-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="book-cover-placeholder font-serif" style="background: linear-gradient(135deg, #4a5568, #2d3748); color: #fff;">
+                    <div class="placeholder-border">
+                      <span class="placeholder-title">Livro do Desassossego</span>
+                      <span class="placeholder-author">Fernando Pessoa</span>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+              <div class="card-content-custom pt-3 px-1 pb-1">
+                <h3 class="book-title font-serif">Livro do Desassossego</h3>
+                <div class="is-flex is-justify-content-space-between is-align-items-center mt-2">
+                  <p class="book-price">R$ 49,00</p>
+                  <div class="quantity-selector">
+                    <button class="button quantity-btn minus-btn" aria-label="Remover do carrinho" disabled>
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+                    <span class="quantity-value">0</span>
+                    <button class="button quantity-btn plus-btn" aria-label="Adicionar ao carrinho">
+                      <i class="fa-solid fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- Section 2: Promocao de Livros -->
+      <section class="book-section py-5">
+        <h2 class="title is-4 font-serif section-title">Promoção de Livros</h2>
+        <div class="columns is-multiline is-mobile book-grid">
+          <!-- Book 6 -->
+          <div class="column is-6-mobile is-3-tablet is-one-fifth-desktop">
+            <div class="book-card card" data-id="book-6" data-title="Vidas Secas" data-author="Graciliano Ramos" data-price="R$ 52,00" data-desc="O clássico do romance regionalista que relata a saga de Fabiano e sua família de retirantes que fogem da seca devastadora no sertão nordestino." data-bg="linear-gradient(135deg, #c05621, #7b341e)">
+              <div class="card-image">
+                <figure class="image is-2by3 book-cover-container">
+                  <img src="assets/vidas_secas.jpg" alt="Vidas Secas" class="book-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="book-cover-placeholder font-serif" style="background: linear-gradient(135deg, #c05621, #7b341e); color: #fff;">
+                    <div class="placeholder-border">
+                      <span class="placeholder-title">Vidas Secas</span>
+                      <span class="placeholder-author">Graciliano Ramos</span>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+              <div class="card-content-custom pt-3 px-1 pb-1">
+                <h3 class="book-title font-serif">Vidas Secas</h3>
+                <div class="is-flex is-justify-content-space-between is-align-items-center mt-2">
+                  <p class="book-price">R$ 52,00</p>
+                  <div class="quantity-selector">
+                    <button class="button quantity-btn minus-btn" aria-label="Remover do carrinho" disabled>
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+                    <span class="quantity-value">0</span>
+                    <button class="button quantity-btn plus-btn" aria-label="Adicionar ao carrinho">
+                      <i class="fa-solid fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Book 7 -->
+          <div class="column is-6-mobile is-3-tablet is-one-fifth-desktop">
+            <div class="book-card card" data-id="book-7" data-title="Capitães da Areia" data-author="Jorge Amado" data-price="R$ 56,00" data-desc="A vida de um grupo de meninos abandonados nas ruas de Salvador, os 'Capitães da Areia', suas aventuras, crimes e o amadurecimento diante de uma sociedade desigual." data-bg="linear-gradient(135deg, #2b6cb0, #2c3e50)">
+              <div class="card-image">
+                <figure class="image is-2by3 book-cover-container">
+                  <img src="assets/capitaes_da_areia.jpg" alt="Capitães da Areia" class="book-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="book-cover-placeholder font-serif" style="background: linear-gradient(135deg, #2b6cb0, #1a365d); color: #fff;">
+                    <div class="placeholder-border">
+                      <span class="placeholder-title">Capitães da Areia</span>
+                      <span class="placeholder-author">Jorge Amado</span>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+              <div class="card-content-custom pt-3 px-1 pb-1">
+                <h3 class="book-title font-serif">Capitães da Areia</h3>
+                <div class="is-flex is-justify-content-space-between is-align-items-center mt-2">
+                  <p class="book-price">R$ 56,00</p>
+                  <div class="quantity-selector">
+                    <button class="button quantity-btn minus-btn" aria-label="Remover do carrinho" disabled>
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+                    <span class="quantity-value">0</span>
+                    <button class="button quantity-btn plus-btn" aria-label="Adicionar ao carrinho">
+                      <i class="fa-solid fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Book 8 -->
+          <div class="column is-6-mobile is-3-tablet is-one-fifth-desktop">
+            <div class="book-card card" data-id="book-8" data-title="Dom Casmurro" data-author="Machado de Assis" data-price="R$ 64,00" data-desc="O célebre romance narrado em primeira pessoa por Bento Santiago (Bentinho), que reconta sua vida e seu ciúme obsessivo por Capitu, questionando se ela o traiu ou não." data-bg="linear-gradient(135deg, #4a5568, #2d3748)">
+              <div class="card-image">
+                <figure class="image is-2by3 book-cover-container">
+                  <img src="assets/dom_casmurro.jpg" alt="Dom Casmurro" class="book-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="book-cover-placeholder font-serif" style="background: linear-gradient(135deg, #4a5568, #2d3748); color: #fff;">
+                    <div class="placeholder-border">
+                      <span class="placeholder-title">Dom Casmurro</span>
+                      <span class="placeholder-author">Machado de Assis</span>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+              <div class="card-content-custom pt-3 px-1 pb-1">
+                <h3 class="book-title font-serif">Dom Casmurro</h3>
+                <div class="is-flex is-justify-content-space-between is-align-items-center mt-2">
+                  <p class="book-price">R$ 64,00</p>
+                  <div class="quantity-selector">
+                    <button class="button quantity-btn minus-btn" aria-label="Remover do carrinho" disabled>
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+                    <span class="quantity-value">0</span>
+                    <button class="button quantity-btn plus-btn" aria-label="Adicionar ao carrinho">
+                      <i class="fa-solid fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Book 9 -->
+          <div class="column is-6-mobile is-3-tablet is-one-fifth-desktop">
+            <div class="book-card card" data-id="book-9" data-title="Memórias Póstumas de Brás Cubas" data-author="Machado de Assis" data-price="R$ 72,00" data-desc="Um 'defunto autor' narra suas memórias após a morte. Com ironia, pessimismo e inovação narrativa, Machado de Assis faz uma crítica mordaz à sociedade do Rio de Janeiro no século XIX." data-bg="linear-gradient(135deg, #e53e3e, #742a2a)">
+              <div class="card-image">
+                <figure class="image is-2by3 book-cover-container">
+                  <img src="assets/memorias_pos_bras_cubas.jpg" alt="Memórias Póstumas de Brás Cubas" class="book-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="book-cover-placeholder font-serif" style="background: linear-gradient(135deg, #e53e3e, #742a2a); color: #fff;">
+                    <div class="placeholder-border">
+                      <span class="placeholder-title" style="font-size: 0.85rem;">Memórias Póstumas...</span>
+                      <span class="placeholder-author">Machado de Assis</span>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+              <div class="card-content-custom pt-3 px-1 pb-1">
+                <h3 class="book-title font-serif">Memórias Póstumas...</h3>
+                <div class="is-flex is-justify-content-space-between is-align-items-center mt-2">
+                  <p class="book-price">R$ 72,00</p>
+                  <div class="quantity-selector">
+                    <button class="button quantity-btn minus-btn" aria-label="Remover do carrinho" disabled>
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+                    <span class="quantity-value">0</span>
+                    <button class="button quantity-btn plus-btn" aria-label="Adicionar ao carrinho">
+                      <i class="fa-solid fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Book 10 -->
+          <div class="column is-6-mobile is-3-tablet is-one-fifth-desktop">
+            <div class="book-card card" data-id="book-10" data-title="O Cortiço" data-author="Aluísio Azevedo" data-price="R$ 44,00" data-desc="Um marco do Naturalismo brasileiro. O livro retrata a vida dos moradores de um cortiço carioca, cujas ações e destinos são influenciados pelo meio social, raça e momento histórico." data-bg="linear-gradient(135deg, #2f855a, #22543d)">
+              <div class="card-image">
+                <figure class="image is-2by3 book-cover-container">
+                  <img src="assets/o_cortico.jpg" alt="O Cortiço" class="book-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="book-cover-placeholder font-serif" style="background: linear-gradient(135deg, #2f855a, #22543d); color: #fff;">
+                    <div class="placeholder-border">
+                      <span class="placeholder-title">O Cortiço</span>
+                      <span class="placeholder-author">Aluísio Azevedo</span>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+              <div class="card-content-custom pt-3 px-1 pb-1">
+                <h3 class="book-title font-serif">O Cortiço</h3>
+                <div class="is-flex is-justify-content-space-between is-align-items-center mt-2">
+                  <p class="book-price">R$ 44,00</p>
+                  <div class="quantity-selector">
+                    <button class="button quantity-btn minus-btn" aria-label="Remover do carrinho" disabled>
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+                    <span class="quantity-value">0</span>
+                    <button class="button quantity-btn plus-btn" aria-label="Adicionar ao carrinho">
+                      <i class="fa-solid fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- Section 3: Box de Livros mais vendidos -->
+      <section class="book-section py-5">
+        <h2 class="title is-4 font-serif section-title">Box de Livros mais vendidos</h2>
+        <div class="columns is-multiline is-mobile book-grid">
+          <!-- Book 11 -->
+          <div class="column is-6-mobile is-3-tablet is-one-fifth-desktop">
+            <div class="book-card card" data-id="book-11" data-title="Box Machado de Assis" data-author="Machado de Assis" data-price="R$ 232,00" data-desc="Uma coleção de luxo reunindo os principais romances e contos de Machado de Assis, o maior escritor da literatura brasileira." data-bg="linear-gradient(135deg, #ed8936, #9c4221)">
+              <div class="card-image">
+                <figure class="image is-2by3 book-cover-container">
+                  <img src="assets/box_machado_assis.jpg" alt="Box Machado de Assis" class="book-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="book-cover-placeholder font-serif" style="background: linear-gradient(135deg, #8c7355, #4a3b2c); color: #fff;">
+                    <div class="placeholder-border">
+                      <span class="placeholder-type">BOX SET</span>
+                      <span class="placeholder-title">Machado de Assis</span>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+              <div class="card-content-custom pt-3 px-1 pb-1">
+                <h3 class="book-title font-serif">Machado de Assis</h3>
+                <div class="is-flex is-justify-content-space-between is-align-items-center mt-2">
+                  <p class="book-price">R$ 232,00</p>
+                  <div class="quantity-selector">
+                    <button class="button quantity-btn minus-btn" aria-label="Remover do carrinho" disabled>
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+                    <span class="quantity-value">0</span>
+                    <button class="button quantity-btn plus-btn" aria-label="Adicionar ao carrinho">
+                      <i class="fa-solid fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Book 12 -->
+          <div class="column is-6-mobile is-3-tablet is-one-fifth-desktop">
+            <div class="book-card card" data-id="book-12" data-title="Box William Shakespeare" data-author="William Shakespeare" data-price="R$ 244,00" data-desc="Box especial com as tragédias e comédias mais famosas de William Shakespeare, incluindo Hamlet, Romeu e Julieta, Macbeth e muito mais." data-bg="linear-gradient(135deg, #b7791f, #744210)">
+              <div class="card-image">
+                <figure class="image is-2by3 book-cover-container">
+                  <img src="assets/box_shakespeare.jpg" alt="Box William Shakespeare" class="book-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="book-cover-placeholder font-serif" style="background: linear-gradient(135deg, #9b2c2c, #5c0f0f); color: #fff;">
+                    <div class="placeholder-border">
+                      <span class="placeholder-type">BOX SET</span>
+                      <span class="placeholder-title">William Shakespeare</span>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+              <div class="card-content-custom pt-3 px-1 pb-1">
+                <h3 class="book-title font-serif">William Shakespeare</h3>
+                <div class="is-flex is-justify-content-space-between is-align-items-center mt-2">
+                  <p class="book-price">R$ 244,00</p>
+                  <div class="quantity-selector">
+                    <button class="button quantity-btn minus-btn" aria-label="Remover do carrinho" disabled>
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+                    <span class="quantity-value">0</span>
+                    <button class="button quantity-btn plus-btn" aria-label="Adicionar ao carrinho">
+                      <i class="fa-solid fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Book 13 -->
+          <div class="column is-6-mobile is-3-tablet is-one-fifth-desktop">
+            <div class="book-card card" data-id="book-13" data-title="Box Mestres Russos" data-author="Dostoiévski, Tolstói, etc." data-price="R$ 167,00" data-desc="Uma antologia das grandes obras de Dostoiévski, Tolstói, Gógol e Tchekhov reunidas em uma edição de colecionador definitiva." data-bg="linear-gradient(135deg, #4a5568, #1a202c)">
+              <div class="card-image">
+                <figure class="image is-2by3 book-cover-container">
+                  <img src="assets/box_mestres_russos.jpg" alt="Box Mestres Russos" class="book-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="book-cover-placeholder font-serif" style="background: linear-gradient(135deg, #2d3748, #1a202c); color: #fff;">
+                    <div class="placeholder-border">
+                      <span class="placeholder-type">BOX SET</span>
+                      <span class="placeholder-title">Mestres Russos</span>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+              <div class="card-content-custom pt-3 px-1 pb-1">
+                <h3 class="book-title font-serif">Mestres Russos</h3>
+                <div class="is-flex is-justify-content-space-between is-align-items-center mt-2">
+                  <p class="book-price">R$ 167,00</p>
+                  <div class="quantity-selector">
+                    <button class="button quantity-btn minus-btn" aria-label="Remover do carrinho" disabled>
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+                    <span class="quantity-value">0</span>
+                    <button class="button quantity-btn plus-btn" aria-label="Adicionar ao carrinho">
+                      <i class="fa-solid fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Book 14 -->
+          <div class="column is-6-mobile is-3-tablet is-one-fifth-desktop">
+            <div class="book-card card" data-id="book-14" data-title="Box Friedrich Nietzsche" data-author="Friedrich Nietzsche" data-price="R$ 189,00" data-desc="Os principais textos filosóficos de Friedrich Nietzsche, incluindo 'Assim Falou Zaratustra', 'Além do Bem e do Mal' e 'Genealogia da Moral'." data-bg="linear-gradient(135deg, #4a5568, #2d3748)">
+              <div class="card-image">
+                <figure class="image is-2by3 book-cover-container">
+                  <img src="assets/box_nietzsche.jpg" alt="Box Nietzsche" class="book-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="book-cover-placeholder font-serif" style="background: linear-gradient(135deg, #1a202c, #0d1117); color: #fff;">
+                    <div class="placeholder-border">
+                      <span class="placeholder-type">BOX SET</span>
+                      <span class="placeholder-title">Friedrich Nietzsche</span>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+              <div class="card-content-custom pt-3 px-1 pb-1">
+                <h3 class="book-title font-serif">Box Nietzsche</h3>
+                <div class="is-flex is-justify-content-space-between is-align-items-center mt-2">
+                  <p class="book-price">R$ 189,00</p>
+                  <div class="quantity-selector">
+                    <button class="button quantity-btn minus-btn" aria-label="Remover do carrinho" disabled>
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+                    <span class="quantity-value">0</span>
+                    <button class="button quantity-btn plus-btn" aria-label="Adicionar ao carrinho">
+                      <i class="fa-solid fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Book 15 -->
+          <div class="column is-6-mobile is-3-tablet is-one-fifth-desktop">
+            <div class="book-card card" data-id="book-15" data-title="Box George Orwell" data-author="George Orwell" data-price="R$ 176,00" data-desc="Coleção essencial contendo '1984', 'A Revolução dos Bichos' e uma seleção dos ensaios mais influentes do autor britânico." data-bg="linear-gradient(135deg, #805ad5, #44337a)">
+              <div class="card-image">
+                <figure class="image is-2by3 book-cover-container">
+                  <img src="assets/box_orwell.jpg" alt="Box George Orwell" class="book-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="book-cover-placeholder font-serif" style="background: linear-gradient(135deg, #4c51bf, #2b3080); color: #fff;">
+                    <div class="placeholder-border">
+                      <span class="placeholder-type">BOX SET</span>
+                      <span class="placeholder-title">George Orwell</span>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+              <div class="card-content-custom pt-3 px-1 pb-1">
+                <h3 class="book-title font-serif">Box George Orwell</h3>
+                <div class="is-flex is-justify-content-space-between is-align-items-center mt-2">
+                  <p class="book-price">R$ 176,00</p>
+                  <div class="quantity-selector">
+                    <button class="button quantity-btn minus-btn" aria-label="Remover do carrinho" disabled>
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+                    <span class="quantity-value">0</span>
+                    <button class="button quantity-btn plus-btn" aria-label="Adicionar ao carrinho">
+                      <i class="fa-solid fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="custom-footer py-6">
+    <div class="container px-4">
+      <h2 class="title is-5 footer-heading font-serif">Nos Contate</h2>
+      <div class="columns is-mobile is-multiline">
+        <div class="column is-12-mobile is-6-tablet">
+          <div class="contact-item">
+            <span class="contact-icon"><i class="fa-regular fa-envelope"></i></span>
+            <a href="mailto:nome@gmail.com" class="contact-link">nome@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon"><i class="fa-brands fa-whatsapp"></i></span>
+            <a href="https://wa.me/55999999999" target="_blank" class="contact-link">999999999</a>
+          </div>
+        </div>
+        <div class="column is-12-mobile is-6-tablet">
+          <div class="contact-item">
+            <span class="contact-icon"><i class="fa-brands fa-instagram"></i></span>
+            <a href="https://instagram.com/name" target="_blank" class="contact-link">name</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon"><i class="fa-brands fa-facebook-f"></i></span>
+            <a href="https://facebook.com/name" target="_blank" class="contact-link">name</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!-- Javascript -->
+  <script src="script.js"></script>
+</body>
+</html>
