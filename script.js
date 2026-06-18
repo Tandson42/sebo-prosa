@@ -54,18 +54,24 @@ document.addEventListener('DOMContentLoaded', () => {
   // 3. Quantity Selector & Cart Management
   // ==========================================================================
   const cartBadge = document.getElementById('cart-badge');
+  const cartSubtotalFooter = document.getElementById('cart-subtotal-footer');
+  const cartSubtotalValue = document.getElementById('cart-subtotal-value');
   const bookCards = document.querySelectorAll('.book-card');
   
-  // Track quantities in memory
+  // Track quantities and prices in memory
   const cart = {};
+  const prices = {};
 
   bookCards.forEach(card => {
     const bookId = card.getAttribute('data-id');
+    const priceText = card.getAttribute('data-price');
+    const priceNum = parseFloat(priceText.replace('R$ ', '').replace(',', '.'));
     const minusBtn = card.querySelector('.minus-btn');
     const plusBtn = card.querySelector('.plus-btn');
     
     // Initialize cart state for this book if not present
     cart[bookId] = 0;
+    prices[bookId] = priceNum || 0;
 
     minusBtn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -102,15 +108,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateCartBadge() {
     let totalItems = 0;
+    let subtotal = 0;
     for (const id in cart) {
       totalItems += cart[id];
+      subtotal += cart[id] * prices[id];
     }
 
     if (totalItems > 0) {
       cartBadge.textContent = totalItems;
       cartBadge.style.display = 'inline-flex';
+      
+      if (cartSubtotalFooter) {
+        cartSubtotalFooter.style.display = 'block';
+        setTimeout(() => cartSubtotalFooter.classList.add('is-active'), 10);
+        cartSubtotalValue.textContent = 'R$ ' + subtotal.toFixed(2).replace('.', ',');
+      }
     } else {
       cartBadge.style.display = 'none';
+      
+      if (cartSubtotalFooter) {
+        cartSubtotalFooter.classList.remove('is-active');
+        setTimeout(() => {
+          if (!cartSubtotalFooter.classList.contains('is-active')) {
+            cartSubtotalFooter.style.display = 'none';
+          }
+        }, 400);
+      }
     }
   }
 });

@@ -665,3 +665,47 @@ html[data-theme="dark"] .quantity-btn:hover:not([disabled]) {
 .book-price {
   margin-bottom: 0 !important;
 }
+
+/* ==========================================================================
+   Cart Subtotal Footer Styling
+   ========================================================================== */
+
+.cart-subtotal-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-cream-card);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  padding: 1rem 0;
+  z-index: 50;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(100%);
+}
+
+html[data-theme="dark"] .cart-subtotal-footer {
+  border-top-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.cart-subtotal-footer.is-active {
+  transform: translateY(0);
+}
+
+.subtotal-label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-right: 0.5rem;
+  color: var(--bulma-text);
+}
+
+.subtotal-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-accent-gold);
+}
+
+html[data-theme="light"] .subtotal-value {
+  color: var(--color-primary-brown-dark);
+}
