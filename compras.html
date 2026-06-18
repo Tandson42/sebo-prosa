@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Livraria Conceito - Compras</title>
+  <!-- Bulma CSS Framework -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
+  <!-- Google Fonts: Inter & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero is-relative custom-hero" style="height: 250px;">
+    <!-- Hero Header (Navbar) -->
+    <div class="hero-head">
+      <nav class="navbar is-transparent" role="navigation" aria-label="main navigation" id="main-navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item logo-text" href="index.html">
+              LOGO
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+
+          <div id="navbarMenu" class="navbar-menu">
+            <div class="navbar-end">
+              <a class="navbar-item custom-nav-item" href="index.html">Home</a>
+              <a class="navbar-item custom-nav-item" href="index.html">Catálogo</a>
+              <a class="navbar-item custom-nav-item is-active" href="compras.html">
+                Compras
+                <span class="tag is-rounded is-danger cart-badge ml-2" id="cart-badge" style="display: none;">0</span>
+              </a>
+              <a class="navbar-item custom-nav-item" href="configuracoes.html">Configurações</a>
+              <a class="navbar-item theme-toggle" id="theme-toggle-btn" aria-label="Alternar tema">
+                <i class="fa-regular fa-moon toggle-icon"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Main Content Area -->
+  <main class="main-content py-6">
+    <div class="container px-4 text-center" style="min-height: 40vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+      <i class="fa-solid fa-cart-shopping fa-4x mb-4" style="color: var(--color-accent-gold);"></i>
+      <h1 class="title font-serif section-title mb-3">Seu Carrinho</h1>
+      <p class="subtitle mb-5">Os itens selecionados no catálogo aparecerão aqui para finalizar a compra.</p>
+      
+      <!-- O Subtotal continuará sendo exibido no footer fixo através do script.js -->
+      <a href="index.html" class="button is-medium" style="background-color: var(--color-accent-gold); color: white; border: none;">
+        Voltar ao Catálogo
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="custom-footer py-6">
+    <div class="container px-4">
+      <h2 class="title is-5 footer-heading font-serif">Nos Contate</h2>
+      <div class="columns is-mobile is-multiline">
+        <div class="column is-12-mobile is-6-tablet">
+          <div class="contact-item">
+            <span class="contact-icon"><i class="fa-regular fa-envelope"></i></span>
+            <a href="mailto:nome@gmail.com" class="contact-link">nome@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon"><i class="fa-brands fa-whatsapp"></i></span>
+            <a href="https://wa.me/55999999999" target="_blank" class="contact-link">999999999</a>
+          </div>
+        </div>
+        <div class="column is-12-mobile is-6-tablet">
+          <div class="contact-item">
+            <span class="contact-icon"><i class="fa-brands fa-instagram"></i></span>
+            <a href="https://instagram.com/name" target="_blank" class="contact-link">name</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon"><i class="fa-brands fa-facebook-f"></i></span>
+            <a href="https://facebook.com/name" target="_blank" class="contact-link">name</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LGPD Cookie Banner -->
+  <div id="cookie-banner" class="cookie-banner" style="display: none;">
+    <div class="container px-4 is-flex is-justify-content-space-between is-align-items-center cookie-banner-content">
+      <p class="mb-0 cookie-text">
+        Utilizamos cookies e armazenamento local para personalizar sua experiência (como tema e fontes). Ao continuar navegando, você concorda com nossas políticas.
+      </p>
+      <button class="button is-small cookie-btn" id="accept-cookies">Entendi</button>
+    </div>
+  </div>
+
+  <!-- Cart Subtotal Footer (Reused from index.html) -->
+  <div id="cart-subtotal-footer" class="cart-subtotal-footer" style="display: none;">
+    <div class="container px-4 is-flex is-justify-content-space-between is-align-items-center">
+      <div class="subtotal-info">
+        <span class="subtotal-label font-serif">Subtotal (<span id="cart-total-items">0</span> itens):</span>
+        <span class="subtotal-value">R$ 0,00</span>
+      </div>
+      <button class="button checkout-btn">
+        <span>Finalizar Compra</span>
+        <i class="fa-solid fa-arrow-right ml-2"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Javascript -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -155,7 +155,68 @@ document.addEventListener('DOMContentLoaded', () => {
       cookieBanner.classList.remove('is-active');
       setTimeout(() => {
         cookieBanner.style.display = 'none';
-      }, 400); // Wait for transition
+      }, 400);
+    });
+  }
+
+  // ==========================================================================
+  // 5. Configurações Globais (Cores e Fontes)
+  // ==========================================================================
+  
+  // Aplicar configurações salvas ao carregar
+  const savedColor = localStorage.getItem('theme-color');
+  if (savedColor) {
+    document.documentElement.style.setProperty('--color-accent-gold', savedColor);
+    const customPicker = document.getElementById('custom-color-picker');
+    if (customPicker) customPicker.value = savedColor;
+  }
+
+  const savedFontSize = localStorage.getItem('theme-font-size');
+  if (savedFontSize) {
+    document.documentElement.style.fontSize = savedFontSize;
+  }
+
+  // Lógica da página de configurações
+  const paletteBtns = document.querySelectorAll('.palette-btn');
+  const customColorPicker = document.getElementById('custom-color-picker');
+  const fontSizeBtns = document.querySelectorAll('.font-size-btn');
+
+  if (paletteBtns.length > 0) {
+    paletteBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const color = e.target.getAttribute('data-color');
+        document.documentElement.style.setProperty('--color-accent-gold', color);
+        localStorage.setItem('theme-color', color);
+        if(customColorPicker) customColorPicker.value = color;
+      });
+    });
+  }
+
+  if (customColorPicker) {
+    customColorPicker.addEventListener('input', (e) => {
+      const color = e.target.value;
+      document.documentElement.style.setProperty('--color-accent-gold', color);
+      localStorage.setItem('theme-color', color);
+    });
+  }
+
+  if (fontSizeBtns.length > 0) {
+    fontSizeBtns.forEach(btn => {
+      // Set active visual state if matches saved
+      if (savedFontSize && btn.getAttribute('data-size') === savedFontSize) {
+        fontSizeBtns.forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+      }
+
+      btn.addEventListener('click', (e) => {
+        const size = e.target.getAttribute('data-size');
+        document.documentElement.style.fontSize = size;
+        localStorage.setItem('theme-font-size', size);
+        
+        // Update visual state
+        fontSizeBtns.forEach(b => b.classList.remove('is-active'));
+        e.target.classList.add('is-active');
+      });
     });
   }
 
