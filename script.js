@@ -136,4 +136,27 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   }
+
+  // ==========================================================================
+  // 4. LGPD Cookie Banner
+  // ==========================================================================
+  const cookieBanner = document.getElementById('cookie-banner');
+  const btnAcceptCookies = document.getElementById('accept-cookies');
+
+  if (cookieBanner && btnAcceptCookies) {
+    const hasAccepted = localStorage.getItem('cookies-accepted');
+    if (!hasAccepted) {
+      cookieBanner.style.display = 'block';
+      setTimeout(() => cookieBanner.classList.add('is-active'), 100);
+    }
+
+    btnAcceptCookies.addEventListener('click', () => {
+      localStorage.setItem('cookies-accepted', 'true');
+      cookieBanner.classList.remove('is-active');
+      setTimeout(() => {
+        cookieBanner.style.display = 'none';
+      }, 400); // Wait for transition
+    });
+  }
+
 });

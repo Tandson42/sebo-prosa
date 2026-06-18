@@ -709,3 +709,114 @@ html[data-theme="dark"] .cart-subtotal-footer {
 html[data-theme="light"] .subtotal-value {
   color: var(--color-primary-brown-dark);
 }
+
+/* ==========================================================================
+   LGPD Cookie Banner
+   ========================================================================== */
+
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-primary-brown-dark);
+  color: #fff;
+  padding: 1rem 0;
+  z-index: 100;
+  box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.3);
+  transform: translateY(100%);
+  transition: transform 0.4s ease-out;
+}
+
+.cookie-banner.is-active {
+  transform: translateY(0);
+}
+
+.cookie-text {
+  font-size: 0.9rem;
+  max-width: 80%;
+}
+
+.cookie-btn {
+  background-color: var(--color-accent-gold) !important;
+  color: #2d2621 !important;
+  border: none !important;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.cookie-btn:hover {
+  background-color: #d8be99 !important;
+}
+
+/* ==========================================================================
+   Responsiveness explicitly for requirements (max-width: 1200px & 600px)
+   ========================================================================== */
+
+/* Tablet (max-width: 1200px) - Orientation changes from horizontal to vertical */
+@media screen and (max-width: 1200px) {
+  .glass-pills-container .column {
+    /* Força os elementos que eram horizontais a ficarem 100% da largura, stackando verticalmente */
+    width: 100% !important;
+    flex: none;
+  }
+  
+  .glass-pill-card {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 1rem;
+    text-align: left;
+  }
+  
+  .glass-pill-card .pill-icon {
+    margin-right: 1rem;
+  }
+  
+  .contact-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+}
+
+/* Smartphone (max-width: 600px) - Font sizes, padding, borders */
+@media screen and (max-width: 600px) {
+  /* Tamanho de fontes */
+  .section-title {
+    font-size: 1.25rem !important;
+  }
+  
+  .book-title {
+    font-size: 0.95rem;
+  }
+  
+  .hero-title {
+    font-size: 1.75rem !important;
+  }
+  
+  /* Paddings e Margins */
+  .custom-hero {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+  
+  .book-card {
+    padding: 0.5rem !important;
+  }
+  
+  /* Bordas */
+  .glass-pill-card {
+    border-radius: 12px;
+    border-width: 2px;
+  }
+  
+  .cookie-banner-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .cookie-text {
+    max-width: 100%;
+  }
+}
