@@ -83,6 +83,8 @@ body {
    ========================================================================== */
 
 .custom-hero {
+  position: relative;
+  overflow: visible;
   height: 520px;
   /* Cozy fallback gradients + image reference */
   background: linear-gradient(to bottom, rgba(45, 38, 33, 0.45) 0%, rgba(45, 38, 33, 0.3) 60%, rgba(45, 38, 33, 0.7) 100%), 
@@ -93,6 +95,19 @@ body {
   background-attachment: scroll;
   transition: var(--transition-smooth);
   box-shadow: inset 0 -10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.custom-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 140px;
+  background: linear-gradient(to bottom, transparent, var(--bulma-body-background-color));
+  z-index: 5;
+  pointer-events: none;
+  transition: background-color 0.4s ease;
 }
 
 /* Adjust layout on smaller screens */
@@ -442,12 +457,12 @@ html[data-theme="light"] .book-price {
   width: 28px;
 }
 
-.contact-link {
+a.contact-link {
   color: #f7f5f2;
   transition: var(--transition-smooth);
 }
 
-.contact-link:hover {
+a.contact-link:hover {
   color: var(--color-accent-gold);
   text-decoration: underline;
 }
@@ -820,3 +835,148 @@ html[data-theme="light"] .subtotal-value {
     max-width: 100%;
   }
 }
+
+/* ==========================================================================
+   Visual Optimizations (Scrolled Navbar, Animations & Refinements)
+   ========================================================================== */
+
+#main-navbar {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease, padding 0.4s ease;
+  padding: 0.75rem 0;
+}
+
+#main-navbar.is-scrolled {
+  background-color: rgba(45, 38, 33, 0.78) !important;
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.35rem 0;
+}
+
+html[data-theme="dark"] #main-navbar.is-scrolled {
+  background-color: rgba(28, 24, 21, 0.85) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Underline Hover Animation for Nav Items */
+.custom-nav-item {
+  position: relative;
+}
+
+.custom-nav-item::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 4px;
+  left: 50%;
+  background-color: var(--color-accent-gold);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.custom-nav-item:hover::after {
+  width: 50%;
+  left: 25%;
+}
+
+.custom-nav-item.is-active::after {
+  display: none;
+}
+
+/* Book Card Hover & Shadows */
+.book-card {
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s ease !important;
+}
+
+.book-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 36px rgba(45, 38, 33, 0.15) !important;
+}
+
+html[data-theme="dark"] .book-card:hover {
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Inputs & Dropdowns Focus Highlights */
+.input:focus, .select select:focus {
+  border-color: var(--color-accent-gold) !important;
+  box-shadow: 0 0 0 0.125em rgba(197, 168, 128, 0.25) !important;
+}
+
+/* Active Button Click Feedback */
+.button:active {
+  transform: scale(0.96) !important;
+  transition: transform 0.1s ease;
+}
+
+/* Todo Item List Animations */
+.todo-item {
+  border: 1px solid rgba(197, 168, 128, 0.15) !important;
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), background-color 0.3s ease !important;
+}
+
+.todo-item:hover {
+  transform: translateY(-2px) translateX(2px);
+  box-shadow: 0 6px 16px rgba(45, 38, 33, 0.08) !important;
+  background-color: rgba(197, 168, 128, 0.04) !important;
+}
+
+html[data-theme="dark"] .todo-item:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3) !important;
+  background-color: rgba(197, 168, 128, 0.08) !important;
+}
+
+/* Disable hover effect on logo brand link */
+.logo-brand:hover {
+  background-color: transparent !important;
+  color: inherit !important;
+  transform: none !important;
+}
+
+/* Coupon card style */
+.coupon-card {
+  border: 1px dashed var(--color-accent-gold);
+  border-radius: 12px;
+  background-color: var(--color-cream-card);
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: var(--bulma-card-shadow);
+  transition: var(--transition-smooth);
+}
+
+.coupon-code {
+  font-family: var(--font-sans);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-primary-brown-dark);
+  background-color: rgba(197, 168, 128, 0.15);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1px dashed var(--color-accent-gold);
+  display: inline-block;
+  letter-spacing: 0.1em;
+  margin: 0.75rem 0;
+}
+
+html[data-theme="dark"] .coupon-code {
+  color: var(--color-accent-gold);
+  background-color: rgba(197, 168, 128, 0.08);
+}
+
+/* Subscription section cozy styling */
+.subscription-card {
+  background: linear-gradient(135deg, var(--color-cream-card) 0%, rgba(197, 168, 128, 0.05) 100%);
+  border: 1.5px solid rgba(197, 168, 128, 0.25);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: var(--bulma-card-shadow);
+  transition: var(--transition-smooth);
+}
+
+

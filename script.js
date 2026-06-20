@@ -220,4 +220,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ==========================================================================
+  // 6. Navbar Scroll Dynamic Effect
+  // ==========================================================================
+  const mainNavbar = document.getElementById('main-navbar');
+  if (mainNavbar) {
+    const checkScroll = () => {
+      if (window.scrollY > 20) {
+        mainNavbar.classList.add('is-scrolled');
+      } else {
+        mainNavbar.classList.remove('is-scrolled');
+      }
+    };
+    
+    window.addEventListener('scroll', checkScroll);
+    checkScroll();
+  }
+
 });
