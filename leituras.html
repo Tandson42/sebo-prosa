@@ -223,72 +223,11 @@
           <div class="todo-section">
             <h3 class="title is-5 font-serif mb-4">
               <i class="fa-regular fa-bookmark mr-2" style="color: var(--color-accent-gold);"></i>
-              Para Ler (<span id="count-pending">3</span>)
+              Para Ler (<span id="count-pending">0</span>)
             </h3>
             
             <div id="pending-list">
-              <!-- Item 1 (Mock) -->
-              <div class="todo-item" data-todo-id="mock-1">
-                <div class="todo-info">
-                  <div class="todo-icon-box">
-                    <i class="fa-solid fa-book-open"></i>
-                  </div>
-                  <div>
-                    <h4 class="todo-title">Dom Casmurro</h4>
-                    <p class="todo-author">Machado de Assis</p>
-                  </div>
-                </div>
-                <div class="todo-actions">
-                  <button class="button action-btn btn-done" title="Marcar como Lido" onclick="this.closest('.todo-item').classList.toggle('completed')">
-                    <i class="fa-regular fa-circle-check"></i>
-                  </button>
-                  <button class="button action-btn btn-delete" title="Excluir" onclick="this.closest('.todo-item').remove()">
-                    <i class="fa-regular fa-trash-can"></i>
-                  </button>
-                </div>
-              </div>
-
-              <!-- Item 2 (Mock) -->
-              <div class="todo-item" data-todo-id="mock-2">
-                <div class="todo-info">
-                  <div class="todo-icon-box">
-                    <i class="fa-solid fa-book-open"></i>
-                  </div>
-                  <div>
-                    <h4 class="todo-title">O Cortiço</h4>
-                    <p class="todo-author">Aluísio Azevedo</p>
-                  </div>
-                </div>
-                <div class="todo-actions">
-                  <button class="button action-btn btn-done" title="Marcar como Lido" onclick="this.closest('.todo-item').classList.toggle('completed')">
-                    <i class="fa-regular fa-circle-check"></i>
-                  </button>
-                  <button class="button action-btn btn-delete" title="Excluir" onclick="this.closest('.todo-item').remove()">
-                    <i class="fa-regular fa-trash-can"></i>
-                  </button>
-                </div>
-              </div>
-
-              <!-- Item 3 (Mock) -->
-              <div class="todo-item" data-todo-id="mock-3">
-                <div class="todo-info">
-                  <div class="todo-icon-box">
-                    <i class="fa-solid fa-book-open"></i>
-                  </div>
-                  <div>
-                    <h4 class="todo-title">Grande Sertão: Veredas</h4>
-                    <p class="todo-author">João Guimarães Rosa</p>
-                  </div>
-                </div>
-                <div class="todo-actions">
-                  <button class="button action-btn btn-done" title="Marcar como Lido" onclick="this.closest('.todo-item').classList.toggle('completed')">
-                    <i class="fa-regular fa-circle-check"></i>
-                  </button>
-                  <button class="button action-btn btn-delete" title="Excluir" onclick="this.closest('.todo-item').remove()">
-                    <i class="fa-regular fa-trash-can"></i>
-                  </button>
-                </div>
-              </div>
+              <!-- As tarefas pendentes serão carregadas dinamicamente via AJAX -->
             </div>
           </div>
         </div>
@@ -298,51 +237,11 @@
           <div class="todo-section">
             <h3 class="title is-5 font-serif mb-4">
               <i class="fa-solid fa-circle-check mr-2" style="color: #10b981;"></i>
-              Lidos (<span id="count-completed">2</span>)
+              Lidos (<span id="count-completed">0</span>)
             </h3>
             
             <div id="completed-list">
-              <!-- Item 4 (Mock) -->
-              <div class="todo-item completed" data-todo-id="mock-4">
-                <div class="todo-info">
-                  <div class="todo-icon-box" style="color: #10b981;">
-                    <i class="fa-solid fa-book"></i>
-                  </div>
-                  <div>
-                    <h4 class="todo-title">Memórias Póstumas de Brás Cubas</h4>
-                    <p class="todo-author">Machado de Assis</p>
-                  </div>
-                </div>
-                <div class="todo-actions">
-                  <button class="button action-btn btn-undo" title="Mover para Para Ler">
-                    <i class="fa-solid fa-arrow-rotate-left"></i>
-                  </button>
-                  <button class="button action-btn btn-delete" title="Excluir" onclick="this.closest('.todo-item').remove()">
-                    <i class="fa-regular fa-trash-can"></i>
-                  </button>
-                </div>
-              </div>
-
-              <!-- Item 5 (Mock) -->
-              <div class="todo-item completed" data-todo-id="mock-5">
-                <div class="todo-info">
-                  <div class="todo-icon-box" style="color: #10b981;">
-                    <i class="fa-solid fa-book"></i>
-                  </div>
-                  <div>
-                    <h4 class="todo-title">O Ateneu</h4>
-                    <p class="todo-author">Raul Pompeia</p>
-                  </div>
-                </div>
-                <div class="todo-actions">
-                  <button class="button action-btn btn-undo" title="Mover para Para Ler">
-                    <i class="fa-solid fa-arrow-rotate-left"></i>
-                  </button>
-                  <button class="button action-btn btn-delete" title="Excluir" onclick="this.closest('.todo-item').remove()">
-                    <i class="fa-regular fa-trash-can"></i>
-                  </button>
-                </div>
-              </div>
+              <!-- As tarefas concluídas serão carregadas dinamicamente via AJAX -->
             </div>
           </div>
         </div>
@@ -391,6 +290,8 @@
   </div>
 
   <!-- Javascript -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="script.js"></script>
+  <script src="leituras.js"></script>
 </body>
 </html>
