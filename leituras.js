@@ -192,9 +192,31 @@ $(function () {
         let countCompleted = 0;
 
         tarefas.forEach(tarefa => {
-          const titulo = tarefa.titulo || 'Sem Título';
-          const autor = tarefa.descricao || 'Autor Desconhecido';
-          const concluida = tarefa.concluida || false;
+          let textoCompleto = tarefa.texto || '';
+          let concluida = false;
+          let titulo = '';
+          let autor = '';
+
+          // Decodificar status PENDENTE / LIDO e separar título e autor
+          if (textoCompleto.startsWith('[LIDO] ')) {
+            concluida = true;
+            textoCompleto = textoCompleto.substring(7); // Remove '[LIDO] '
+          } else if (textoCompleto.startsWith('[PENDENTE] ')) {
+            concluida = false;
+            textoCompleto = textoCompleto.substring(11); // Remove '[PENDENTE] '
+          } else {
+            // Fallback caso venha uma string bruta sem marcadores
+            concluida = false;
+          }
+
+          const partes = textoCompleto.split(' — ');
+          if (partes.length >= 2) {
+            titulo = partes[0];
+            autor = partes[1];
+          } else {
+            titulo = textoCompleto || 'Sem Título';
+            autor = 'Autor Desconhecido';
+          }
 
           // Buscar dados do catálogo local para carregar capa e sinopse
           const livroCatalogo = CATALOGO_LIVROS.find(l => l.titulo.toLowerCase() === titulo.toLowerCase());
@@ -282,10 +304,11 @@ $(function () {
 
     const livro = CATALOGO_LIVROS[selectedIdx];
 
+    // O back-end só possui o campo 'texto'. Guardamos no formato '[PENDENTE] Título — Autor'
+    const textoParaSalvar = `[PENDENTE] ${livro.titulo} — ${livro.autor}`;
+
     const novaTarefa = {
-      titulo: livro.titulo,
-      descricao: livro.autor,
-      concluida: false
+      texto: textoParaSalvar
     };
 
     $.ajax({
@@ -321,11 +344,12 @@ $(function () {
       const titulo = btn.data('title');
       const autor = btn.data('author');
 
+      const novoStatus = !statusAtual;
+      const textoParaSalvar = `${novoStatus ? '[LIDO]' : '[PENDENTE]'} ${titulo} — ${autor}`;
+
       const tarefaAtualizada = {
         id: id,
-        titulo: titulo,
-        descricao: autor,
-        concluida: !statusAtual
+        texto: textoParaSalvar
       };
 
       $.ajax({
