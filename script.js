@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
   bookCards.forEach(card => {
     const bookId = card.getAttribute('data-id');
     const priceText = card.getAttribute('data-price');
+    if (!bookId || !priceText) return;
     const priceNum = parseFloat(priceText.replace('R$ ', '').replace(',', '.'));
     const minusBtn = card.querySelector('.minus-btn');
     const plusBtn = card.querySelector('.plus-btn');
@@ -184,8 +185,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
   
   // Aplicar configurações salvas ao carregar
+  const savedScheme = localStorage.getItem('theme-scheme');
   const savedColor = localStorage.getItem('theme-color');
-  if (savedColor) {
+
+  if (savedScheme && savedScheme !== 'custom') {
+    document.documentElement.setAttribute('data-color-scheme', savedScheme);
+    document.documentElement.style.removeProperty('--color-accent-gold');
+  } else if (savedColor) {
+    document.documentElement.setAttribute('data-color-scheme', 'custom');
     document.documentElement.style.setProperty('--color-accent-gold', savedColor);
     const customPicker = document.getElementById('custom-color-picker');
     if (customPicker) customPicker.value = savedColor;
@@ -201,13 +208,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const customColorPicker = document.getElementById('custom-color-picker');
   const fontSizeBtns = document.querySelectorAll('.font-size-btn');
 
+  // Highlight active saved color on load
   if (paletteBtns.length > 0) {
+    const currentScheme = savedScheme || 'ouro';
+    paletteBtns.forEach(btn => {
+      if (btn.getAttribute('data-scheme') === currentScheme) {
+        btn.classList.add('is-active');
+      }
+    });
+
     paletteBtns.forEach(btn => {
       btn.addEventListener('click', (e) => {
-        const color = e.target.getAttribute('data-color');
-        document.documentElement.style.setProperty('--color-accent-gold', color);
+        const button = e.currentTarget;
+        const scheme = button.getAttribute('data-scheme');
+        const color = button.getAttribute('data-color');
+        
+        document.documentElement.setAttribute('data-color-scheme', scheme);
+        document.documentElement.style.removeProperty('--color-accent-gold');
+        localStorage.setItem('theme-scheme', scheme);
         localStorage.setItem('theme-color', color);
-        if(customColorPicker) customColorPicker.value = color;
+        if (customColorPicker) customColorPicker.value = color;
+
+        // Update active class
+        paletteBtns.forEach(b => b.classList.remove('is-active'));
+        button.classList.add('is-active');
       });
     });
   }
@@ -215,8 +239,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (customColorPicker) {
     customColorPicker.addEventListener('input', (e) => {
       const color = e.target.value;
+      document.documentElement.setAttribute('data-color-scheme', 'custom');
       document.documentElement.style.setProperty('--color-accent-gold', color);
+      localStorage.setItem('theme-scheme', 'custom');
       localStorage.setItem('theme-color', color);
+
+      // Remove active class from predefined buttons since custom color is active
+      paletteBtns.forEach(b => b.classList.remove('is-active'));
     });
   }
 
