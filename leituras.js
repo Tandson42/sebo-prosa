@@ -226,40 +226,40 @@ $(function () {
 
           if (livroCatalogo) {
             coverHTML = `
-              <div style="width: 50px; min-width: 50px; height: 75px; aspect-ratio: 2/3; overflow: hidden; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+              <div style="width: 70px; min-width: 70px; height: 105px; aspect-ratio: 2/3; overflow: hidden; border-radius: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
                 <img src="${livroCatalogo.capa}" alt="${escapeAttr(titulo)}" style="width: 100%; height: 100%; object-fit: cover;">
               </div>
             `;
             sinopseHTML = `
-              <p class="todo-desc is-size-7 text-muted" style="margin-top: 0.35rem; line-height: 1.35; font-style: italic; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;" title="${escapeAttr(livroCatalogo.sinopse)}">
+              <p class="todo-desc is-size-7 text-muted" style="margin-top: 0.5rem; line-height: 1.4; font-style: italic; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;" title="${escapeAttr(livroCatalogo.sinopse)}">
                 ${escapeHTML(livroCatalogo.sinopse)}
               </p>
             `;
           } else {
             // Fallback caso seja um livro cadastrado de fora do catálogo
             coverHTML = `
-              <div class="is-flex is-align-items-center is-justify-content-center" style="width: 50px; min-width: 50px; height: 75px; background: linear-gradient(135deg, var(--color-accent-gold), var(--color-primary-brown-dark)); color: white; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.15); font-size: 1.25rem;">
+              <div class="is-flex is-align-items-center is-justify-content-center" style="width: 70px; min-width: 70px; height: 105px; background: linear-gradient(135deg, var(--color-accent-gold), var(--color-primary-brown-dark)); color: white; border-radius: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); font-size: 1.5rem;">
                 <i class="fa-solid ${concluida ? 'fa-book' : 'fa-book-open'}"></i>
               </div>
             `;
             sinopseHTML = `
-              <p class="todo-desc is-size-7 text-muted" style="margin-top: 0.35rem; line-height: 1.35; font-style: italic;">
+              <p class="todo-desc is-size-7 text-muted" style="margin-top: 0.5rem; line-height: 1.4; font-style: italic;">
                 Livro importado de fonte externa.
               </p>
             `;
           }
 
           const itemHTML = `
-            <div class="todo-item ${concluida ? 'completed' : ''}" data-id="${tarefa.id}">
-              <div class="todo-info" style="align-items: flex-start; gap: 1rem;">
+            <div class="todo-item ${concluida ? 'completed' : ''}" data-id="${tarefa.id}" style="padding: 1.25rem;">
+              <div class="todo-info" style="align-items: flex-start; gap: 1.25rem;">
                 ${coverHTML}
                 <div style="flex-grow: 1; min-width: 0;">
-                  <h4 class="todo-title" style="margin-bottom: 0.15rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${escapeHTML(titulo)}</h4>
-                  <p class="todo-author" style="margin-bottom: 0;">${escapeHTML(autor)}</p>
+                  <h4 class="todo-title font-serif" style="margin-bottom: 0.25rem; font-size: 1.15rem; line-height: 1.2; font-weight: 700; color: var(--bulma-text);">${escapeHTML(titulo)}</h4>
+                  <p class="todo-author text-muted" style="margin-bottom: 0; font-size: 0.9rem; font-weight: 500;">${escapeHTML(autor)}</p>
                   ${sinopseHTML}
                 </div>
               </div>
-              <div class="todo-actions" style="align-self: center;">
+              <div class="todo-actions" style="align-self: center; margin-left: 1rem;">
                 <button class="button action-btn ${concluida ? 'btn-undo' : 'btn-done'}" 
                         title="${concluida ? 'Mover para Para Ler' : 'Marcar como Lido'}"
                         data-action="toggle" 

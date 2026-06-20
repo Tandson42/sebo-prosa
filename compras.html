@@ -57,15 +57,11 @@
 
   <!-- Main Content Area -->
   <main class="main-content py-6">
-    <div class="container px-4 text-center" style="min-height: 40vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-      <i class="fa-solid fa-cart-shopping fa-4x mb-4" style="color: var(--color-accent-gold);"></i>
-      <h1 class="title font-serif section-title mb-3">Seu Carrinho</h1>
-      <p class="subtitle mb-5">Os itens selecionados no catálogo aparecerão aqui para finalizar a compra.</p>
-      
-      <!-- O Subtotal continuará sendo exibido no footer fixo através do script.js -->
-      <a href="index.html" class="button is-medium" style="background-color: var(--color-accent-gold); color: white; border: none;">
-        Voltar ao Catálogo
-      </a>
+    <div class="container px-4" id="cart-page-container" style="max-width: 1340px; width: 100%;">
+      <div id="cart-loading" class="has-text-centered py-6">
+        <i class="fa-solid fa-circle-notch fa-spin fa-3x mb-3" style="color: var(--color-accent-gold);"></i>
+        <p class="subtitle is-6">Carregando seu carrinho...</p>
+      </div>
     </div>
   </main>
 
@@ -122,21 +118,10 @@
     </div>
   </div>
 
-  <!-- Cart Subtotal Footer (Reused from index.html) -->
-  <div id="cart-subtotal-footer" class="cart-subtotal-footer" style="display: none;">
-    <div class="container px-4 is-flex is-justify-content-space-between is-align-items-center">
-      <div class="subtotal-info">
-        <span class="subtotal-label font-serif">Subtotal (<span id="cart-total-items">0</span> itens):</span>
-        <span class="subtotal-value">R$ 0,00</span>
-      </div>
-      <button class="button checkout-btn">
-        <span>Finalizar Compra</span>
-        <i class="fa-solid fa-arrow-right ml-2"></i>
-      </button>
-    </div>
-  </div>
+
 
   <!-- Javascript -->
   <script src="script.js"></script>
+  <script src="compras.js"></script>
 </body>
 </html>

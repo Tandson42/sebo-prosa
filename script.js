@@ -62,6 +62,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const cart = {};
   const prices = {};
 
+  // Retrieve stored cart from localStorage
+  const savedCart = localStorage.getItem('cart');
+  let parsedCart = {};
+  if (savedCart) {
+    try {
+      parsedCart = JSON.parse(savedCart);
+    } catch (e) {
+      parsedCart = {};
+    }
+  }
+
   bookCards.forEach(card => {
     const bookId = card.getAttribute('data-id');
     const priceText = card.getAttribute('data-price');
@@ -69,15 +80,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const minusBtn = card.querySelector('.minus-btn');
     const plusBtn = card.querySelector('.plus-btn');
     
-    // Initialize cart state for this book if not present
-    cart[bookId] = 0;
+    // Initialize cart state for this book from parsedCart or 0
+    cart[bookId] = parsedCart[bookId] || 0;
     prices[bookId] = priceNum || 0;
+
+    // Display initial quantity
+    updateQuantityDisplay(card, bookId);
 
     minusBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       if (cart[bookId] > 0) {
         cart[bookId]--;
         updateQuantityDisplay(card, bookId);
+        saveCartToStorage();
       }
     });
 
@@ -85,8 +100,13 @@ document.addEventListener('DOMContentLoaded', () => {
       e.stopPropagation();
       cart[bookId]++;
       updateQuantityDisplay(card, bookId);
+      saveCartToStorage();
     });
   });
+
+  function saveCartToStorage() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
 
   function updateQuantityDisplay(card, bookId) {
     const qty = cart[bookId];

@@ -182,7 +182,7 @@
 
   <!-- Main Content Area -->
   <main class="main-content py-6">
-    <div class="container px-4">
+    <div class="container px-4" style="max-width: 1340px; width: 100%;">
       <h1 class="title font-serif section-title mb-5">Minha Fila de Leituras</h1>
       
       <!-- Bloco de entrada (Cadastrar nova leitura) -->
@@ -213,14 +213,14 @@
             
             <!-- Coluna 2: Prévia -->
             <div class="column is-5">
-              <div id="book-preview-container" class="box is-flex" style="display: none !important; gap: 1rem; align-items: flex-start; padding: 1rem; background-color: var(--color-cream-card); border: 1px dashed var(--color-accent-gold); height: 100%;">
-                <div style="width: 80px; min-width: 80px; aspect-ratio: 2/3; overflow: hidden; border-radius: 4px; box-shadow: 0 4px 8px rgba(0,0,0,0.15);">
+              <div id="book-preview-container" class="box is-flex" style="display: none !important; gap: 1.5rem; align-items: flex-start; padding: 1.5rem; background-color: var(--color-cream-card); border: 1px dashed var(--color-accent-gold); height: 100%;">
+                <div style="width: 100px; min-width: 100px; height: 150px; aspect-ratio: 2/3; overflow: hidden; border-radius: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
                   <img id="preview-cover" src="" alt="Capa" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div style="flex-grow: 1;">
-                  <h4 id="preview-title" class="title is-6 font-serif mb-1 text-theme-override"></h4>
-                  <p id="preview-author" class="subtitle is-7 mb-2" style="color: var(--color-accent-gold); font-weight: 600;"></p>
-                  <p id="preview-desc" class="is-size-7 text-muted" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.4;"></p>
+                  <h4 id="preview-title" class="title is-5 font-serif mb-2 text-theme-override" style="font-weight: 700; line-height: 1.2;"></h4>
+                  <p id="preview-author" class="subtitle is-6 mb-3" style="color: var(--color-accent-gold); font-weight: 600;"></p>
+                  <p id="preview-desc" class="is-size-7 text-muted" style="display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.5;"></p>
                 </div>
               </div>
               <div id="book-preview-placeholder" class="box is-flex is-align-items-center is-justify-content-center" style="height: 100%; min-height: 120px; border: 1px dashed rgba(197, 168, 128, 0.4); background-color: transparent;">
